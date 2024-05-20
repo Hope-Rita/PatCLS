@@ -6,6 +6,12 @@ We provide the preprocessed datasets and NLP pretrained Model at [here](https://
 * on USPTO-200K datasets: ``python train.py --US US``
 * on CNPTD-200K datasets: ``python train.py --US CN``
 
+## Introduction of our model:
+* Detailed settings such as length of historical patents, slide windows, and dimension of hidden representations are in ``./utils/param_parser.py``.
+* The whole design of our model is in ``./Model/PatentCLS.py``, now we use the Bi-LSTM to obtain textual information for patent documents, you could also replace it with BERT model.
+* ``./Model/Hierarchy_Emb.py`` is the implement of **IPC Codes Correlations Learning**, we get the semantic embeddings of IPC codes in the third-level by learning the hierarchical structure of taxonomy and incorporate the semantic information into patent representations for classification.
+* ``./Model/DynamicGraphModule.py`` is the implement of **Historical Application Patterns Learning**. We first build the graph in ``./utils/util.py`` before we train our model and put the patent interaction graph into this module to learn the temporal behaviors for companies.
+  
 ## Performance
 | Datasets   | Precision(@1) | Recall(@1) | NDCG(@1) | Precision(@3) | Recall(@3) | NDCG(@3) | Precision(@5) | Recall(@5) | NDCG(@5) |
 | ---------- | :-----------: | :--------: | :------: | :-----------: | :--------: | :------: | :-----------: | :--------: | :------: |
