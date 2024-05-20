@@ -1,6 +1,6 @@
 # Adaptive Taxonomy Learning and Historical Patterns Modelling for Patent Classification
 ## Datasets
-We provide the preprocessed datasets and NLP pretrained Model at [here](https://drive.google.com/drive/folders/1WzhGAmG2woPJIiMenmcpG6iuopExwoG1?usp=sharing), which should be put in the ./ folder.
+We provide the preprocessed datasets and NLP pretrained Model at [here](https://drive.google.com/drive/folders/1WzhGAmG2woPJIiMenmcpG6iuopExwoG1?usp=sharing), which should be put in the ./ folder. The datasets contain two components: patent documents and a hierarchy of IPC classification codes. For patent documents, we provide anonymous IDs for companies, IPC codes in five levels, patent documents, publication times, and descriptions for patents. Under the "Tree" category, we store the hierarchical structure for IPC codes at adjacent levels. If you wish to utilize our work with your datasets, simply ensure they are formatted similarly and train a Word2Vec model as the pre-training model to capture textual information.
 
 ## To train patent classification model:
 * on USPTO-200K datasets: ``python train.py --US US``
