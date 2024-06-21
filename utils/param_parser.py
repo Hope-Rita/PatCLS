@@ -47,6 +47,8 @@ def parameter_parser():
     parser.add_argument("--seed", type=int, default=1, help="random seed")
     parser.add_argument("--batch-size", type=int, default=32, help="Batch Size.")
     parser.add_argument("--learning-rate", type=float, default=0.001, help="Learning rate.")
+    parser.add_argument('--use_lstm_text', type=bool, default=False, help='Use bi-lstm function in text embedding')
+    parser.add_argument('--model_way', type=str, default='gcn', help='Way of aggregation in historical behavior modelling')
     parser.add_argument("--decay-rate", type=float, default=0.95, help="Rate of decay for learning rate.")
     parser.add_argument("--decay-steps", type=int, default=100, help="How many steps before decay learning rate.")
 
