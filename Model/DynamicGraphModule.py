@@ -149,5 +149,5 @@ class DynamicGraph(nn.Module):
 
         res_emb = self.fusion(
                     self.adap(torch.stack([readout_feats['text'], readout_feats['label']], dim=-1)).squeeze(dim=-1))
-        assert res_emb.shape == torch.Size([B, self.embedding_label])
+        assert res_emb.shape == torch.Size([B, self.output_dim])
         return res_emb
