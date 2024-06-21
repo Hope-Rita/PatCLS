@@ -101,7 +101,7 @@ class AttentionDNY(Network):
         self.emb_size = emb_size
         self.out_dim = labels_num
         self.embedding_label = hidden_size * 2
-        self.hierarchy_dim = self.embedding_label * 2 if self.use_hierarchy else self.embedding_label
+        self.hierarchy_dim = self.embedding_label * 2
         self.lstm = LSTMEncoder(emb_size, hidden_size, layers_num, dropout, bidirectional=True)
         self.attention = MLAttention(labels_num, self.embedding_label, device)
         self.linear = MLLinear([self.hierarchy_dim] + linear_size, 1)
