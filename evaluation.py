@@ -44,7 +44,7 @@ def evaluation(harnn, batches_dt, logger, device, string='validation'):
 
             total_loss += loss.cpu().data.numpy()
             train_loader_tqdm.set_description(f'{string} for the {idx}-th batch, train loss: {loss.item()}')
-            for j, (truth, pred, key) in enumerate(zip(truths, all_pred, keys)):
+            for j, (truth, pred, key) in enumerate(zip(truths[-1:], all_pred, keys)):
                 assert truth.shape == pred.shape
                 scores = get_metric(y_true=truth.detach().cpu(), y_pred=pred.detach().cpu())
                 for metric_i, metric_value in scores.items():
